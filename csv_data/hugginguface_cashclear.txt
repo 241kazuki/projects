@@ -1,0 +1,2 @@
+(.venv) s22t324@ice:/mnt/data/s26g375/project$ rm -rf /mnt/data/s26g375/.cache/huggingface/hub/*
+(.venv) s22t324@ice:/mnt/data/s26g375/project$ rm -rf /mnt/data/s26g375/.cache/huggingface/xet/*

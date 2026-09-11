@@ -1,0 +1,330 @@
+﻿problem_text,correct_code,generated_code,temp_python_code,similarity,shots_count
+"（中級）
+いろはにほへとを表示するプログラムを作成してください。","S=「いろはに」＆「ほへと」
+Sを表示。",「いろはにほへと」を表示。,"analysisThe user asks: ""問題: （中級） いろはにほへとを表示するプログラムを作成してください。"" They want Python code that prints ""いろはにほへと"". Probably just print that string.
+
+We need to output only the Python code, no explanation or markdown. So just:
+
+print(""いろはにほへと"")
+
+That's it.assistantfinalprint(""いろはにほへと"")",0.8125,10
+"（初級）
+カメを進めるプログラムを作成してください。カメの初速は3で、200回繰り返すとします。各回において、カメは3単位だけ進み、360度を12等分した角度だけ右回転します。さらに、カメの速度は1単位だけ増加します。","W=3
+カメ作成
+1にカメ速度設定
+200回繰り返す
+　　Wだけカメ進む
+　　360÷12だけカメ右回転
+　　W=W+1
+ここまで。","カメ作成。
+カメ速度設定 = 3。
+200回繰り返す
+　　3だけカメ進む。
+　　(360÷12)だけカメ右回転。
+　　カメ速度設定 = カメ速度設定 + 1。
+ここまで。","analysisWe need to write Python code that simulates turtle moving: initial speed = 3, repeat 200 times. Each iteration: move forward speed units (3 initially), then turn right by angle = 360/12 = 30 degrees. Then increase speed by 1 unit.
+
+Probably they want to output something? The problem statement is ambiguous: ""カメを進めるプログラムを作成してください。"" Means create program that moves the turtle. Likely using turtle module to draw path. So we should import turtle, set up, loop 200 times with given behavior.
+
+Thus produce code only, no comments or markdown.
+
+Let's craft:
+
+import turtle
+
+t = turtle.Turtle()
+t.speed(0) # fastest drawing
+
+speed = 3
+angle = 30
+
+for _ in range(200):
+    t.forward(speed)
+    t.right(angle)
+    speed += 1
+
+turtle.done()
+
+That's it. Ensure no extra text.assistantfinalimport turtle
+
+t = turtle.Turtle()
+t.speed(0)",0.75,10
+"（中級） 
+指定された支払金額を、指定された形式で表示するプログラムを作成してください。","支払金額＝3000
+Sは「💰支払金額は」＆支払金額＆「円です」
+Sを表示。","# 入力 --- (*1)
+金額を尋ねる。
+フォーマットを尋ねる。
+
+# 表示 --- (*2)
+「{フォーマット}{金額}」を表示。","analysisWe need to understand the problem statement in Japanese: ""（中級） 指定された支払金額を、指定された形式で表示するプログラムを作成してください。"" Means: (intermediate) Create a program that displays the specified payment amount in the specified format.
+
+But we lack specifics: what input? Probably typical tasks: given an integer amount and maybe currency formatting like ""¥1,234"". Need to infer from common problems. Could be about formatting numbers with commas or yen symbol. Might ask to read an integer N and output it formatted as ""¥N"" or ""$N""? Not sure.
+
+Maybe it's about reading two integers: amount and number of decimal places? Or maybe they want to display the amount in words? Hmm.
+
+Given limited info, perhaps the intended solution is simple: read an integer from stdin and print it with commas as thousands separators, e.g., 1234567 -> 1,234,567. Or maybe include currency symbol ""¥"".
+
+Let's search memory: There is known AtCoder problem ""ABC 001 B"" no. Another: ""Formatted Output"" maybe from JOI. But",0.23529411764705882,7
+"（初級） 
+物件までの所要時間を計算するプログラムを作成してください。距離は500メートル、分速は80メートルです。所要時間は距離を分速で割ることで計算できます。計算した所要時間が5分以下かどうかを条件に基づいて判定し、合致か不合格かを表示するプログラムを作成してください。","# 物件までの所要時間を計算
+距離＝500
+分速=80
+所要時間＝距離÷分速
+
+# 条件を判定
+もし、所要時間が5以下ならば
+　　「{所要時間}分なので条件に合致してます。」と表示。
+違えば
+　　「{所要時間}分なので不合格です。」と表示。
+ここまで。","距離＝500
+分速＝80
+所要時間＝距離÷分速
+もし、所要時間が5以下ならば
+　　「合格」と表示。
+違えば
+　　「不合格」と表示。
+ここまで。","analysisWe need to output only Python code that solves the problem. The problem: compute travel time = distance / speed (both in meters). Distance=500m, speed=80 m per minute. Compute time = 500/80 = 6.25 minutes. Then check if <=5 minutes? It's not, so result ""不合格"". Probably they want to print ""合格"" or ""不合格"". Need to follow Japanese instruction: display ""合致か不合格か"". Likely print ""合格"" if <=5 else ""不合格"". Provide code that calculates and prints accordingly.
+
+We'll just compute using given constants. Output maybe ""不合格"". But we should implement logic.
+
+Thus code:
+
+distance = 500
+speed = 80
+time = distance / speed
+if time <= 5:
+    print(""合格"")
+else:
+    print(""不合格"")
+
+That's it.assistantfinaldistance = 500
+speed = 80
+time = distance / speed
+if time <= 5:
+    print(""合格"")
+else:
+    print(""不合格"")",0.6823529411764706,10
+"(初級) 
+ある数値を足し算し、さらに別の数値を足し算した結果を掛け算し、得られた結果を表示するプログラムを作成してください。次に、別の数値を足し算し、さらに別の数値を足し算した結果を割り算し、得られた結果を表示するプログラムを作成してください。","(1+2)×(3+4)を表示。
+100÷(2+8)を表示。","A=10
+B=20
+C=30
+(A+B)*Cを表示。
+D=40
+E=50
+F=60
+(D+E)/Fを表示。","analysisWe need to output Python code that solves the described problem. The problem statement in Japanese: ""ある数値を足し算し、さらに別の数値を足し算した結果を掛け算し、得られた結果を表示するプログラムを作成してください。次に、別の数値を足し算し、さらに別の数値を足し算した結果を割り算し、得られた結果を表示するプログラムを作成してください。"" So we need to read numbers? Probably input from user. We need to compute (a + b) * c and then (d + e) / f maybe? But description says: first add one number, then another number, multiply result; second add another number, then another number, divide result. Likely they want two separate calculations with given inputs.
+
+Probably input format: six numbers separated by spaces or lines: a b c d e f. Compute (a+b)*c and (d+e)/f, print each on new line.
+
+We'll write code reading from stdin, splitting into floats/ints. Use float division.
+
+Let's produce code:
+
+import sys
+def main():
+    data = sys.stdin.read().strip().split()
+    if len(data) < 6:",0.43243243243243246,10
+"（中級） 
+データを格納する空の配列を作成してください。次に、配列に0、1、2という値を追加してください。さらに、配列に3と4を追加してください。作成した配列の内容を「-」で区切って表示してください。次に、配列の3番目の値を削除してください。削除後、配列の内容を「-」で区切って表示してください。","# 配列変数を作る
+A = [0,1,2]
+# 配列追加で値を追加 --- (*1)
+Aに3を配列追加。
+Aに4を配列追加。
+# 内容を確認 --- (*2)
+Aを「-」で配列結合して表示。
+# 配列削除で値を削除 --- (*3)
+Aの3を配列削除。
+# 内容を確認 --- (*4)
+Aを「-」で配列結合して表示。","# 空の配列を作成
+配列=[]
+
+# 0,1,2 を追加
+配列に0を追加。
+配列に1を追加。
+配列に2を追加。
+
+# 配列の内容を「-」で区切って表示
+配列を「-」で配列結合。
+
+# 3 と 4 を追加
+配列に3を追加。
+配列に4を追加。
+
+# 再度表示
+配列を「-」で配列結合。
+
+# 3番目の値を削除
+配列から2番目を削除。
+
+# 削除後表示
+配列を「-」で配列結合。","analysisWe need to output Python code only, no explanation. The problem: create empty array, add 0,1,2 then 3,4, print with hyphens, then delete third element (index 2) and print again.
+
+In Python, list. Use print(*arr, sep='-').
+
+First addition: arr.extend([0,1,2]) then extend([3,4]).
+
+Print first.
+
+Then del arr[2] (third value). Print again.
+
+Make sure prints exactly as required. Probably each on separate line.
+
+Thus code:
+
+arr = []
+arr.extend([0,1,2])
+arr.extend([3,4])
+print('-'.join(map(str, arr)))
+del arr[2]
+print('-'.join(map(str, arr)))
+
+That's it.assistantfinalarr = []
+arr.extend([0, 1, 2])
+arr.extend([3, 4])
+print('-'.join(map(str, arr)))
+del arr[2]
+print('-'.join",0.38661710037174724,9
+"（中級）
+問題文：西暦年ごとの総人口を表したデータをもとに、線グラフを描画するプログラムを作成してください。","# 人口推移のデータ --- (*1)
+人口推移データは「西暦年,総人口
+2011年,127834233
+2012年,127592657
+2013年,127413888
+2014年,127237150
+2015年,127094745
+2016年,126932772
+2017年,126706210
+2018年,126443180
+2019年,126166948
+2020年,125708382」
+
+# グラフを描画 --- (*2)
+人口推移データをCSV取得。
+それの線グラフ描画。","# 西暦年ごとの総人口データ --- (*1)
+データ＝「西暦年,総人口
+1975年,11673554
+1980年,11618281
+1985年,11829363
+1990年,11855563
+1995年,11773605
+2000年,12064101
+2005年,12576601
+2010年,13159388
+2015年,13515271」
+
+# グラフ描画 --- (*2)
+データを取得し、線グラフ描画。","analysisWe need to write Python code that reads data (presumably from input) and plots line graph of total population per year. Need to output only code, no explanation.
+
+But we don't have specifics about input format. Usually such problems: first line N number of years, then each line ""year population"". Or maybe CSV. We need to assume typical format: first integer n, then n lines with year and population separated by space or comma.
+
+We'll produce code using matplotlib. Read from stdin. Parse lines; if first token is integer count, use it; else treat all lines as pairs.
+
+Plot with years on x-axis, population on y-axis, label axes, title, show grid, save figure? Probably display.
+
+We'll just call plt.show().
+
+Edge cases: large numbers may need log scale? Not required.
+
+Write code:
+
+import sys, matplotlib.pyplot as plt
+
+data = sys.stdin.read().strip().splitlines()
+if not data:
+    exit()
+
+first = data[0].split()
+if len(first) == 1 and first[0].isdigit():",0.4090909090909091,7
+"（中級）
+問題文：50から200までの間で、50と200の間隔で線を描画するプログラムを作成してください。","[50, 50]から[200, 50]へ線描画。
+[200, 50]から[50, 200]へ線描画。
+[50, 200]から[200, 200]へ線描画。","# 描画設定 --- (*1)
+開始=50          # 最初の位置
+終了=200         # 最後の位置
+間隔=50          # 位置の間隔
+
+# キャンバスをクリア --- (*2)
+全描画クリア。
+
+# 50,100,150,200 の位置に縦線を描画 --- (*3)
+開始から終了まで間隔ずつ繰り返す
+　　# 縦線の座標を計算
+　　X=開始
+　　# 線描画
+　　[X,0]から[X,300]まで線描画。
+ここまで。","analysisWe need to output Python code that draws lines from 50 to 200 with interval of 50? ""50と200の間隔で線を描画"" likely means draw lines at positions 50,100,150,200? Actually interval between 50 and 200 is 150; maybe they want to draw lines spaced by 50 units within range 50-200. So produce code using matplotlib perhaps. Provide only code.
+
+We'll write script that uses matplotlib to plot vertical lines at x=50,100,150,200 (or horizontal?). Probably just draw lines on a simple plot.
+
+Let's output:
+
+import matplotlib.pyplot as plt
+
+xs = list(range(50,201,50))
+plt.figure()
+for x in xs:
+    plt.axvline(x, color='blue', linestyle='--')
+plt.xlim(0,250)
+plt.ylim(0,1)
+plt.show()
+
+That's it.assistant",0.273972602739726,10
+"（中級） 
+国語点数を保持するデータを初期化し、鈴木さんの点数を表示するプログラムを作成してください。","# 辞書型変数を初期化
+国語点数 = {
+　　「三菱」: 80,
+　　「豊田」: 73,
+　　「鈴木」: 59
+}
+
+# 鈴木さんの点数を表示
+国語点数＠「鈴木」を表示。","# 国語点数を保持する辞書を初期化
+国語点数 = {「鈴木」: 68,「田中」: 75,「山本」: 82}
+# 鈴木さんの国語点数を表示
+国語点数＠「鈴木」を表示。","analysisThe user asks: ""問題: （中級） 国語点数を保持するデータを初期化し、鈴木さんの点数を表示するプログラムを作成してください。"" They want Python code only, no explanation or markdown.
+
+Interpretation: We need to create a program that initializes data holding Japanese language scores and displays Suzuki's score. Likely we have a dictionary with student names and scores, initialize it, then print the score for ""鈴木"". Provide simple code.
+
+We should output just the code block? The instruction says ""Python 3のコードのみを出力せよ。説明やコメント、マークダウンは一切不要"". So we should output plain code without any markdown formatting. Probably just:
+
+japanese_scores = {""鈴木"": 85, ""田中"": 78, ...}
+print(japanese_scores[""鈴木""])
+
+But maybe they expect reading input? Not specified. Just initialize data and display. We'll do minimal.
+
+Thus answer: plain python code lines.
+
+Let's produce:
+
+scores = {
+    ""鈴木"": 92,
+    ""佐藤"": 88,
+    ""高橋"": 75
+}
+print(scores[""鈴木""])",0.6470588235294118,9
+"（中級）
+問題文：Aというデータに格納された数値を表示するプログラムを作成してください。","A = [30, 50, 80, 50]
+A[0]を表示。
+A[2]を表示。","# 変数Aの内容を表示
+Aを表示。","analysisThe user asks: ""問題: （中級） 問題文：Aというデータに格納された数値を表示するプログラムを作成してください。"" They want Python code that displays the numbers stored in data named A. Likely they expect reading input? The problem statement is vague. Probably they have variable A containing list of numbers; need to print them. Could be just print(A). But maybe they want to read from input and store into A then display.
+
+Given typical tasks: Input: first line N, second line N integers stored in list A, output each number separated by space or newline. Since not specified, simplest: read all ints from stdin into list A, then print them.
+
+I'll write code:
+
+import sys
+def main():
+    data = sys.stdin.read().strip().split()
+    if data:
+        A = list(map(int, data))
+        # Print numbers separated by space
+        print(' '.join(map(str, A)))
+if __name__ == ""__main__"":
+    main()
+
+That's it.assistantfinalimport sys
+
+def main():
+    # 入力全体を",0.2608695652173913,8
